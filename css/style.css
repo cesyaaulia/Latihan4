@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+:root{
+  --pink-1: #f8d7e0; 
+  --pink-2: #f5c0d6; 
+  --accent-blue: #cfe8ff;
+  --soft-gray: #f5f7fa;
+  --card-shadow: 0 6px 18px rgba(15,15,20,0.06);
+}
+body{
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, var(--soft-gray) 0%, #ffffff 40%);
+  color: #333;
+}
+.navbar-pink{
+  background: linear-gradient(90deg,var(--pink-2), #ffeef6);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 4px 14px rgba(245,194,214,0.06);
+}
+.brand-title{
+  color: #5a2130;
+  font-weight: 600;
+}
+.card-custom{
+  border: none;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+}
+.summary-card{
+  border-left: 6px solid rgba(255,255,255,0.4);
+}
+.summary-value{
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.table thead th{
+  background: linear-gradient(180deg, var(--pink-1), var(--pink-2));
+  color: #3a2130;
+  border-bottom: 0;
+  font-weight: 600;
+}
+.table tbody tr td{
+  vertical-align: middle;
+}
+.section-title{
+  font-weight: 600;
+  color: #3a2130;
+}
+footer.footer-small{
+  color: #7a7a7a;
+}
+@media (max-width: 767px){
+  .summary-value{ font-size: 1.1rem;}
+}
+
+.table {
+  font-size: 0.85rem;
+  white-space: normal; 
+}
+
+.table th, .table td {
+  word-wrap: break-word;
+  white-space: normal;
+  vertical-align: middle;
+}
+
+.table-responsive {
+  overflow-x: visible !important;
+}
+
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.8rem;
+  }
+  .table th, .table td {
+    padding: 0.4rem 0.5rem;
+  }
+}
