@@ -39,9 +39,15 @@ $keys = ['a','b','c','d','e','f','g','h'];
             <?php if(count($rows)>0): foreach($rows as $r): ?>
                 <tr>
                 <?php foreach($r as $col => $cell): ?>
-                  <td><?= htmlspecialchars(format_number_if_money($col, $cell)) ?></td>
-                <?php endforeach; ?>
-                </tr>
+  <td><?= htmlspecialchars(format_number_if_money($col, $cell)) ?></td>
+<?php endforeach; ?>
+
+<td class="text-center">
+  <a href="detail.php?id=<?= $r['NomorPesanan'] ?? '' ?>" class="btn btn-success btn-sm">Detail</a>
+  <a href="edit.php?id=<?= $r['NomorPesanan'] ?? '' ?>" class="btn btn-warning btn-sm text-dark">Edit</a>
+  <a href="delete.php?id=<?= $r['NomorPesanan'] ?? '' ?>" class="btn btn-danger btn-sm" 
+     onclick="return confirm('Yakin ingin menghapus data ini?');">Delete</a>
+</td>
             <?php endforeach; else: ?>
                 <tr><td class="text-muted small">No results</td></tr>
             <?php endif; ?>
