@@ -1,5 +1,4 @@
 <?php
-// includes/report-sections.php
 require_once __DIR__ . '/../queries.php';
 $keys = ['a','b','c','d','e','f','g','h'];
 ?>
@@ -26,29 +25,22 @@ $keys = ['a','b','c','d','e','f','g','h'];
       <p class="text-muted small mb-3"><?= htmlspecialchars(get_report_subtitle($k)) ?></p>
       <div class="table-responsive">
         <table class="table table-striped">
-            <thead>
-          <tr>
-            <?php if(count($rows)>0): foreach(array_keys($rows[0]) as $col): ?>
-              <th><?= htmlspecialchars($col) ?></th>
-            <?php endforeach; ?>
-              <th>Aksi</th> <!-- Tambah header baru -->
-            <?php else: ?>
-              <th>No Data</th>
-            <?php endif; ?>
-              </tr>
-            </thead>
+          <thead>
+            <tr>
+              <?php if(count($rows)>0): foreach(array_keys($rows[0]) as $col): ?>
+                <th><?= htmlspecialchars($col) ?></th>
+              <?php endforeach; else: ?>
+                <th>No Data</th>
+              <?php endif; ?>
+            </tr>
+          </thead>
           <tbody>
             <?php if(count($rows)>0): foreach($rows as $r): ?>
-              <tr>
+                <tr>
                 <?php foreach($r as $col => $cell): ?>
-             <td><?= htmlspecialchars(format_number_if_money($col, $cell)) ?></td>
+                  <td><?= htmlspecialchars(format_number_if_money($col, $cell)) ?></td>
                 <?php endforeach; ?>
-            <td class="text-center">
-              <a href="detail.php?id=<?= $r['NomorPesanan'] ?? '' ?>" class="btn btn-success btn-sm">Detail</a>
-              <a href="edit.php?id=<?= $r['NomorPesanan'] ?? '' ?>" class="btn btn-warning btn-sm text-dark">Edit</a>
-              <a href="delete.php?id=<?= $r['NomorPesanan'] ?? '' ?>" class="btn btn-danger btn-sm" 
-             onclick="return confirm('Yakin ingin menghapus data ini?');">Delete</a>
-            </td>
+                </tr>
             <?php endforeach; else: ?>
                 <tr><td class="text-muted small">No results</td></tr>
             <?php endif; ?>
